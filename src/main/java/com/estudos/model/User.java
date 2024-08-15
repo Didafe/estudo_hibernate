@@ -3,11 +3,14 @@ package com.estudos.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -37,6 +40,10 @@ public class User implements Serializable {
 	
 	@Column
 	private Address address;
+		
+	@Column
+	@ElementCollection
+	private List<Options> options;
 	
 	public Integer getId() {
 		return id;
@@ -81,6 +88,15 @@ public class User implements Serializable {
 	@OneToOne(mappedBy = "user")
 	public Address getAddress() {
 		return address;
+	}
+	
+	@OneToMany(mappedBy = "options")
+	public List<Options> getOprions() {
+		return options;
+	}
+	
+	public List<Options> setOptions(List<Options> options) {
+		return this.options = options;
 	}
 	
 	public void setAddress(Address address) {
