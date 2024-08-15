@@ -20,6 +20,14 @@ public class App {
     	product.setName("P 1");
     	product.setPrice(10.00);
     	
-    	session.save(product);
+    	//session.save(product);
+    	
+    	//List<Product> products = session.createQuery("from Product").getResultList();
+    	
+    	Product p1 = session.find(Product.class, 5);
+    	
+    	System.out.println(p1.getName());
+    	
+    	session.getTransaction().commit();
     }
 }
