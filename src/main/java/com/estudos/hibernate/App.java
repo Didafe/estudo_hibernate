@@ -17,15 +17,21 @@ public class App {
     	
     	session.beginTransaction();
     	
-    	Product product = session.find(Product.class, 4);
+    	Product product = session.find(Product.class,5);
     	
     	if(product != null) {
-    		product.setName("Product Edited 2");
-    		product.setPrice(20.00);
-    		 
-    		session.saveOrUpdate(product);
+    		session.remove(product);
     	}
     	
+//    	Product product = session.find(Product.class, 4);
+//    	
+//    	if(product != null) {
+//    		product.setName("Product Edited 2");
+//    		product.setPrice(20.00);
+//    		 
+//    		session.saveOrUpdate(product);
+//    	}
+//    	
 //    	Product product = new Product();
 //    	
 //    	product.setName("P 1");
