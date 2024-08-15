@@ -20,7 +20,8 @@ public class App {
     	Product product = session.find(Product.class,5);
     	
     	if(product != null) {
-    		session.remove(product);
+    		session.delete(product);
+//    		session.remove(product);
     	}
     	
 //    	Product product = session.find(Product.class, 4);
