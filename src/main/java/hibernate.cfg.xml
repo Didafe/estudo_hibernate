@@ -11,5 +11,6 @@
 		<mapping class="com.estudos.hibernate.User"></mapping>
 		<mapping class="com.estudos.hibernate.Address"></mapping>
 		<mapping class="com.estudos.hibernate.Options"></mapping>
+		<mapping class="com.estudos.hibernate.Product"></mapping>
 	</session-factory>
 </hibernate-configuration>
