@@ -15,18 +15,29 @@ public class App {
     public static void main( String[] args ) {
     	Session session = HibernateSession.getSessionFactory().openSession();
     	
-    	Product product = new Product();
+    	session.beginTransaction();
     	
-    	product.setName("P 1");
-    	product.setPrice(10.00);
+    	Product product = session.find(Product.class, 4);
     	
-    	//session.save(product);
+    	if(product != null) {
+    		product.setName("Product Edited 2");
+    		product.setPrice(20.00);
+    		 
+    		session.saveOrUpdate(product);
+    	}
     	
-    	//List<Product> products = session.createQuery("from Product").getResultList();
-    	
-    	Product p1 = session.find(Product.class, 5);
-    	
-    	System.out.println(p1.getName());
+//    	Product product = new Product();
+//    	
+//    	product.setName("P 1");
+//    	product.setPrice(10.00);
+//    	
+//    	//session.save(product);
+//    	
+//    	//List<Product> products = session.createQuery("from Product").getResultList();
+//    	
+//    	Product p1 = session.find(Product.class, 5);
+//    	
+//    	System.out.println(p1.getName());
     	
     	session.getTransaction().commit();
     }
